@@ -43,21 +43,12 @@ export function CognitiveBiases() {
 
     <Counts />
     <div className='biases'>
-      {makeElementsForBiases(filteredBiases)}
+      {filteredBiases.map(b => <CognitiveBiasView key={b.name} bias={b} />)}
     </div>
   </div>;
 }
 
 
-
-function makeElementsForBiases(biasList: CognitiveBias[]) {
-  const elements = [];
-  for (let bias of biasList) {
-    elements.push(<CognitiveBiasView key={bias.name} bias={bias} />)
-  }
-
-  return elements;
-}
 
 function sortBiases(biases: CognitiveBias[], isAscendingOrder: boolean) {
   const sorted = [...biases].sort((a, b) => a.name < b.name ? -1 : 1)
