@@ -1,9 +1,13 @@
+/* palette https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557 */
+
 body {
   max-width: 1200px;
   margin: 0 auto;
   background: #f1faee;
 }
-
+h1 {
+  color: #e63946;
+}
 .biases {
   margin: 0 auto;
   display: flex;
@@ -18,6 +22,7 @@ body {
   border-radius: 5px;
   padding: 20px;
   margin: 10px;
+  position: relative;
 }
 
 .group {
@@ -34,4 +39,10 @@ body {
   width: 300px;
   border-radius: 5px;
   padding: 8px;
+}
+
+button.copy {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }

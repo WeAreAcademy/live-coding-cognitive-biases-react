@@ -8,6 +8,7 @@ const biases = data as CognitiveBias[];
 export function CognitiveBiases() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isAscendingOrder, setIsAscendingOrder] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
 
   function handleSearchTermChange(txt: string) {
     setSearchTerm(txt);
@@ -16,6 +17,9 @@ export function CognitiveBiases() {
     setIsAscendingOrder(prev => !prev);
   }
 
+  function handleToggleIsOpen() {
+    setIsOpen(prev => !prev);
+  }
   const filteredBiases = sortBiases(biases, isAscendingOrder).filter(matchesSearchTerm);
 
   function matchesSearchTerm(bias: CognitiveBias) {
@@ -38,12 +42,13 @@ export function CognitiveBiases() {
       placeholder={"search term..."} />
 
     <button onClick={handleToggleSortOrder}>{isAscendingOrder ? 'ascending' : 'descending'}</button>
+    <button onClick={handleToggleIsOpen}>{isOpen ? 'open' : 'closed'}</button>
 
     Search term is : {searchTerm}<hr />
 
     <Counts />
     <div className='biases'>
-      {filteredBiases.map(b => <CognitiveBiasView key={b.name} bias={b} />)}
+      {filteredBiases.map(b => <CognitiveBiasView key={b.name} bias={b} isOpen={isOpen} />)}
     </div>
   </div>;
 }
