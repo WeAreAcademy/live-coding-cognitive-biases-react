@@ -1,26 +1,37 @@
 body {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  background: #f1faee;
 }
 
-.group {
-  background: powderblue;
-  width: 300px;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.type {
-  background: beige;
-  width: 300px;
-  border-radius: 5px;
-  padding: 5px;
+.biases {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 1000px;
 }
 
 .bias {
-  background: gainsboro;
-  width: 600px;
+  background: #a8dadc;
+  width: 400px;
   border-radius: 5px;
   padding: 20px;
   margin: 10px;
+}
+
+.group {
+  background: #457b9d;
+  color: white;
+  width: 300px;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.type {
+  background: #1d3557;
+  color: white;
+  width: 300px;
+  border-radius: 5px;
+  padding: 8px;
 }
