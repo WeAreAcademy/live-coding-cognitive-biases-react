@@ -4,9 +4,17 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   background: #f1faee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 h1 {
   color: #e63946;
+}
+
+.controls {
+  width: 800px;
+  margin: 0 auto;
 }
 .biases {
   margin: 0 auto;
@@ -14,6 +22,7 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   width: 1000px;
+  justify-content: center;
 }
 
 .bias {

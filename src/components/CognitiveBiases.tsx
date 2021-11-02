@@ -30,17 +30,19 @@ export function CognitiveBiases() {
   }
 
   return <div className='cog-biases'>
-    <h1>List of Cognitive Biases</h1>
+    <div className='controls'>
+      <h1>List of Cognitive Biases</h1>
 
-    <input
-      value={searchTerm}
-      onChange={(event) => handleSearchTermChange(event.target.value)}
-      placeholder={"search term..."} />
+      <input
+        value={searchTerm}
+        onChange={(event) => handleSearchTermChange(event.target.value)}
+        placeholder={"search term..."} />
 
-    <button onClick={handleToggleSortOrder}>{isAscendingOrder ? 'ascending' : 'descending'}</button>
-    <button onClick={handleToggleIsOpen}>{isOpen ? 'open' : 'closed'}</button>
-    <br />
-    <Counts />
+      <button onClick={handleToggleSortOrder}>{isAscendingOrder ? 'ascending' : 'descending'}</button>
+      <button onClick={handleToggleIsOpen}>{isOpen ? 'open' : 'closed'}</button>
+      <br />
+      <Counts /></div>
+
     <div className='biases'>
       {filteredBiases.map(b => <CognitiveBiasView key={b.name} bias={b} isOpen={isOpen} />)}
     </div>
