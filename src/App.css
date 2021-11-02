@@ -46,3 +46,13 @@ button.copy {
   top: 20px;
   right: 20px;
 }
+
+.footer {
+  padding: 20px;
+}
+
+button,
+input {
+  margin: 2px;
+  padding: 4px;
+}

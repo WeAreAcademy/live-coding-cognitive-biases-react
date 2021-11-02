@@ -28,8 +28,8 @@ export function CognitiveBiases() {
   }
   function Counts() {
     return <>
-      Loaded {biases.length} bias(es)<br />
-      Showing {filteredBiases.length} bias(es)<br />
+      Loaded {biases.length} bias(es) total<br />
+      Showing {filteredBiases.length} bias(es) {searchTerm.length > 0 && <>matching "{searchTerm}"</>}<br />
     </>
   }
 
@@ -43,12 +43,16 @@ export function CognitiveBiases() {
 
     <button onClick={handleToggleSortOrder}>{isAscendingOrder ? 'ascending' : 'descending'}</button>
     <button onClick={handleToggleIsOpen}>{isOpen ? 'open' : 'closed'}</button>
-
-    Search term is : {searchTerm}<hr />
-
+    <br />
     <Counts />
     <div className='biases'>
       {filteredBiases.map(b => <CognitiveBiasView key={b.name} bias={b} isOpen={isOpen} />)}
+    </div>
+    <hr />
+    <div className='footer'>
+      Data from <a href="https://en.wikipedia.org/wiki/List_of_cognitive_biases">Wikipedia's List of Cognitive Biases</a>
+      <br />
+      <a href="/downloadables/biases.json" download>Download as JSON</a>
     </div>
   </div>;
 }
