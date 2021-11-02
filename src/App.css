@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
-}
+/* palette https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557 */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #f1faee;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+h1 {
+  color: #e63946;
+}
+
+.controls {
+  width: 800px;
+  margin: 0 auto;
+}
+.biases {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 1000px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.bias {
+  background: #a8dadc;
+  width: 400px;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  position: relative;
+}
+
+.group,
+.type {
   color: white;
+  width: 300px;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: small;
 }
 
-.App-link {
-  color: #61dafb;
+.group {
+  background: #457b9d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.type {
+  background: #1d3557;
+}
+
+button.copy {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.footer {
+  padding: 20px;
+}
+
+button,
+input {
+  margin: 2px;
+  padding: 4px;
 }
