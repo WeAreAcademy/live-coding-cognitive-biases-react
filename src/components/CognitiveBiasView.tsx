@@ -18,10 +18,14 @@ export function CognitiveBiasView(props: CognitiveBiasProps) {
     return <div className='bias'>
         <h2>{bias.name}</h2>
         {props.isOpen && <>
-            {bias.description} < br />
+            {cleanDescription(bias.description)} < br />
             {bias.type && <p className='type'>{bias.type}</p>}
             < p className='group'>{bias.group}</p>
         </>}
         <button className={'copy'} onClick={copyToClipboard}><FaRegCopy /></button>
     </div >;
+}
+
+export function cleanDescription(str: string): string {
+    return str.replaceAll(/\[[0-9]+\]/gi, '');
 }
