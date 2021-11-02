@@ -25,20 +25,21 @@ h1 {
   position: relative;
 }
 
-.group {
-  background: #457b9d;
+.group,
+.type {
   color: white;
   width: 300px;
   border-radius: 5px;
   padding: 8px;
+  font-size: small;
+}
+
+.group {
+  background: #457b9d;
 }
 
 .type {
   background: #1d3557;
-  color: white;
-  width: 300px;
-  border-radius: 5px;
-  padding: 8px;
 }
 
 button.copy {
