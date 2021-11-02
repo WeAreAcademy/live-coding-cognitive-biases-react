@@ -20,12 +20,8 @@ export function CognitiveBiases() {
   function handleToggleIsOpen() {
     setIsOpen(prev => !prev);
   }
-  const filteredBiases = sortBiases(biases, isAscendingOrder).filter(matchesSearchTerm);
+  const filteredBiases = sortBiases(biases, isAscendingOrder).filter(b => matchesSearchTerm(b, searchTerm));
 
-  function matchesSearchTerm(bias: CognitiveBias) {
-    return bias.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      bias.description.toLowerCase().includes(searchTerm.toLowerCase())
-  }
   function Counts() {
     return <>
       Loaded {biases.length} bias(es) total<br />
@@ -62,4 +58,9 @@ export function CognitiveBiases() {
 function sortBiases(biases: CognitiveBias[], isAscendingOrder: boolean) {
   const sorted = [...biases].sort((a, b) => a.name < b.name ? -1 : 1)
   return isAscendingOrder ? sorted : sorted.reverse()
+}
+
+export function matchesSearchTerm(bias: CognitiveBias, term: string) {
+  return bias.name.toLowerCase().includes(term.toLowerCase()) ||
+    bias.description.toLowerCase().includes(term.toLowerCase())
 }
