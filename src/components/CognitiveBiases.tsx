@@ -6,21 +6,20 @@ export function CognitiveBiases() {
     return <div>
         <h1>List of Cognitive Biases</h1>
         Loaded {data.length} biases
-        {data.map((bias) => <CognitiveBias bias={bias} author='neill' />)}
+        {data.map((bias) => <CognitiveBias key={bias.name} bias={bias} />)}
     </div>;
 }
 
 //@ts-ignore
-function CognitiveBias(props): JSX.Element {
+function CognitiveBias(props: CognitiveBiasProps): JSX.Element {
     const bias = props.bias;
-    return <div
-        key={bias.name}
-        className='bias'
-    >Bias:
-        {bias.name}
-        <div className='description'>{bias.description}</div>
-        {bias.group}
-        hello the author is {props.author}
-
-    </div>
+    return (
+        <div
+            key={bias.name}
+            className='bias'
+        >
+            {bias.name}
+            <div className='description'>{bias.description}</div>
+            {bias.group}
+        </div>)
 }
