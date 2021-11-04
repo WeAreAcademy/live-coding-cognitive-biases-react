@@ -1,19 +1,28 @@
 import React from 'react';
-import data from '../data/biases.json';
+import importedBiasData from '../data/biases.json';
+
+interface CognitiveBias {
+    name: string;
+    description: string;
+    group: string;
+    type?: string;
+}
+const biases: CognitiveBias[] = importedBiasData;
 
 export function CognitiveBiases() {
-
     return <div>
         <h1>List of Cognitive Biases</h1>
-        Loaded {data.length} biases
+        Loaded {biases.length} biases
         <div>
-            {data.map((bias) => <CognitiveBias key={bias.name} bias={bias} />)}
+            {biases.map((bias) => <CognitiveBiasView key={bias.name} bias={bias} />)}
         </div>
     </div>;
 }
+interface CognitiveBiasProps {
+    bias: CognitiveBias
+}
 
-//@ts-ignore
-function CognitiveBias(props: CognitiveBiasProps): JSX.Element {
+function CognitiveBiasView(props: CognitiveBiasProps): JSX.Element {
     const bias = props.bias;
     return (
         <div
