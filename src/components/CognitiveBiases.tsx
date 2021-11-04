@@ -7,6 +7,7 @@ const biases: CognitiveBias[] = importedBiasData;
 
 export function CognitiveBiases() {
     const [searchTerm, setSearchTerm] = useState('');
+    console.log("CognitiveBiases() is called and retrieves the stored searchTerm: ", searchTerm);
 
     function matchesSearchTerm(bias: CognitiveBias) {
         return (
@@ -16,7 +17,6 @@ export function CognitiveBiases() {
     }
     const filteredBiases: CognitiveBias[] = biases.filter(matchesSearchTerm);
 
-    console.log("CognitiveBiases function is called at ", new Date());
 
     return <div>
         <h1>List of Cognitive Biases</h1>
