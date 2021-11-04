@@ -7,7 +7,11 @@ const biases: CognitiveBias[] = importedBiasData;
 
 export function CognitiveBiases() {
     const [searchTerm, setSearchTerm] = useState('');
-    const filteredBiases: CognitiveBias[] = findMatchingBiases(biases, searchTerm);
+
+    const filteredBiases: CognitiveBias[] = biases.filter(bias => (
+        bias.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        bias.description.toLowerCase().includes(searchTerm.toLowerCase())
+    ));
 
     console.log("CognitiveBiases function is called at ", new Date());
 
@@ -25,15 +29,5 @@ export function CognitiveBiases() {
             {filteredBiases.map((bias) => <CognitiveBiasView key={bias.name} bias={bias} />)}
         </div>
     </div>;
-}
-
-
-function findMatchingBiases(biases: CognitiveBias[], searchTerm: string): CognitiveBias[] {
-
-    function matchesTerm(bias: CognitiveBias): boolean {
-        return bias.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            bias.description.toLowerCase().includes(searchTerm.toLowerCase());
-    }
-    return biases.filter(matchesTerm);
 }
 
